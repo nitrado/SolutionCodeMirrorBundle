@@ -15,8 +15,8 @@
         {% if code_mirror_get_css_theme(parameters) %}
             {% set theme = code_mirror_get_css_theme(parameters) %}
 
-            {% stylesheets "@SolutionCodeMirrorBundle/Resources/public/css/theme/" ~ code_mirror_get_css_theme ~ ".css"
-                           '@SolutionCodeMirrorBundle/Resources/public/css/codemirror.css' %}
+            <link type="text/css" rel="stylesheet" media="all" href="/bundles/solutioncodemirror/css/theme/{{ parameters['theme'] }}.css" />
+            {% stylesheets '@SolutionCodeMirrorBundle/Resources/public/css/codemirror.css' %}
             <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
             {% endstylesheets %}
         {% endif %}
