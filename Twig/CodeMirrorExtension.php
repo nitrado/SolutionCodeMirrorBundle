@@ -24,10 +24,10 @@ class CodeMirrorExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'code_mirror_parameters_render' => new \Twig_Function_Method($this, 'parametersRender', array('is_safe' => array('html'))),
-            'code_mirror_is_first_call' => new \Twig_Function_Method($this, 'isFirstCall'),
-            'code_mirror_get_js_mode' => new \Twig_Function_Method($this, 'code_mirror_get_js_mode'),
-            'code_mirror_get_css_theme' => new \Twig_Function_Method($this, 'code_mirror_get_css_theme'),
+            new \Twig_SimpleFunction('code_mirror_parameters_render', array($this, 'parametersRender'), array('is_safe' => array('html'))),
+            new \Twig_SimpleFunction('code_mirror_is_first_call', array($this, 'isFirstCall')),
+            new \Twig_SimpleFunction('code_mirror_get_js_mode', array($this, 'code_mirror_get_js_mode')),
+            new \Twig_SimpleFunction('code_mirror_get_css_theme', array($this, 'code_mirror_get_css_theme')),
         );
     }
 
