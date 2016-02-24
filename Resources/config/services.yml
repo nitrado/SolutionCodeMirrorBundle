@@ -1,7 +1,7 @@
 services:
     code_mirror.asset_manager:
         class: Solution\CodeMirrorBundle\Asset\AssetManager
-        arguments: [@file_locator, %code_mirror.mode_dirs%, %code_mirror.themes_dirs%,  %kernel.cache_dir%, %kernel.environment%]
+        arguments: ["@file_locator", %code_mirror.mode_dirs%, %code_mirror.themes_dirs%,  %kernel.cache_dir%, %kernel.environment%]
 
     code_mirror.form.type:
         class: %code_mirror.form_type%
@@ -11,6 +11,6 @@ services:
 
     code_mirror.twig.extension:
         class: Solution\CodeMirrorBundle\Twig\CodeMirrorExtension
-        arguments: [@code_mirror.asset_manager]
+        arguments: ["@code_mirror.asset_manager"]
         tags:
             - { name: twig.extension }
