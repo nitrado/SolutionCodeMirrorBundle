@@ -2,7 +2,7 @@
 
 {% block code_mirror_widget %}
     {% spaceless %}
-        <textarea id="{{ id }}" name="{{ name }}">{{ data }}</textarea>
+        <textarea id="{{ id }}" name="{{ full_name }}">{{ data }}</textarea>
         {% if code_mirror_is_first_call() %}
             {% javascripts '@SolutionCodeMirrorBundle/Resources/public/js/codemirror.js'  %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
