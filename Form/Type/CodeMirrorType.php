@@ -44,7 +44,9 @@ class CodeMirrorType extends AbstractType
      */
     public function getParent()
     {
-        return 'textarea';
+        return method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
+        ? 'Symfony\Component\Form\Extension\Core\Type\TextareaType'
+        : 'textarea';
     }
 
     /**
