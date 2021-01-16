@@ -1,11 +1,12 @@
 <?php
 namespace Solution\CodeMirrorBundle\Twig;
 
-use Zend\Json\Json;
-use Zend\Json\Expr;
+use Laminas\Json\Expr;
+use Laminas\Json\Json;
 
 use Assetic\AssetManager;
 use Assetic\Asset\FileAsset;
+use Twig\TwigFunction;
 
 class CodeMirrorExtension extends \Twig_Extension
 {
@@ -24,10 +25,10 @@ class CodeMirrorExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('code_mirror_parameters_render', array($this, 'parametersRender'), array('is_safe' => array('html'))),
-            new \Twig_SimpleFunction('code_mirror_is_first_call', array($this, 'isFirstCall')),
-            new \Twig_SimpleFunction('code_mirror_get_js_mode', array($this, 'code_mirror_get_js_mode')),
-            new \Twig_SimpleFunction('code_mirror_get_css_theme', array($this, 'code_mirror_get_css_theme')),
+            new TwigFunction('code_mirror_parameters_render', array($this, 'parametersRender'), array('is_safe' => array('html'))),
+            new TwigFunction('code_mirror_is_first_call', array($this, 'isFirstCall')),
+            new TwigFunction('code_mirror_get_js_mode', array($this, 'code_mirror_get_js_mode')),
+            new TwigFunction('code_mirror_get_css_theme', array($this, 'code_mirror_get_css_theme')),
         );
     }
 
@@ -36,7 +37,7 @@ class CodeMirrorExtension extends \Twig_Extension
         if (isset($paramters['mode'])) {
             $paramters['mode'] = new Expr('"' . $paramters['mode'] . '"');
         }
-        $params = Json::encode($paramters, false, array('enableJsonExprFinder' => true));
+        $params = Json::encode($paramters, false, ['enableJsonExprFinder' => true]);
 
         $this->isFirstCall = false;
 

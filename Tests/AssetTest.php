@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Solution\CodeMirrorBundle\Tests\App\AppKernel;
 
-class AssertTest extends WebTestCase
+class AssetTest extends WebTestCase
 {
     /**
      * @var AssetManager
@@ -18,7 +18,7 @@ class AssertTest extends WebTestCase
     /** @var  ContainerInterface */
     protected $container;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         self::$kernel = new AppKernel('test', true);
         static::$kernel->boot();
