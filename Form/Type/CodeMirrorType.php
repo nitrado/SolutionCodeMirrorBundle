@@ -32,11 +32,23 @@ class CodeMirrorType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-       $resolver->setDefaults(
-           array(
-               'parameters' => $this->parameters
-           )
-       );
+        $resolver->setDefaults(
+            array(
+                'parameters' => $this->parameters
+            )
+        );
+    }
+
+    /**
+     * @param OptionsResolver $resolver
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(
+            [
+                'parameters' => [],
+            ]
+        );
     }
 
     /**
