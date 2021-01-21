@@ -13,7 +13,7 @@ class TwigExtensionTest extends WebTestCase
 {
     protected $extension;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         self::$kernel = new AppKernel('test', true);
         static::$kernel->boot();
@@ -43,7 +43,7 @@ class TwigExtensionTest extends WebTestCase
      */
     public function testRenderParameters($parameters, $return)
     {
-        $this->assertEquals($return, $this->extension->parametersRender($parameters));
+        $this->assertJsonStringEqualsJsonString((string) $return, (string) $this->extension->parametersRender($parameters));
     }
 
     /**

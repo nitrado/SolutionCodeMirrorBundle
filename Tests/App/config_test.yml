@@ -10,13 +10,12 @@ framework:
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  en
-    trust_proxy_headers: false # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
+    trusted_proxies: [false] # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
     session:         ~
 # Twig Configuration
 twig:
-    form:
-        resources:
-            - 'SolutionCodeMirrorBundle:Form:code_mirror_widget.html.twig'
+    form_themes:
+        - 'SolutionCodeMirrorBundle:Form:code_mirror_widget.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -34,6 +33,6 @@ solution_code_mirror:
       lineNumbers: true
       lineWrapping: true
     mode_dirs:
-     - @SolutionCodeMirrorBundle/Tests/App/dummy_js
+     - "@SolutionCodeMirrorBundle/Tests/App/dummy_js"
     themes_dirs:
-     - @SolutionCodeMirrorBundle/Tests/App/dummy_js
+     - "@SolutionCodeMirrorBundle/Tests/App/dummy_js"
